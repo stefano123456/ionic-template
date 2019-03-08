@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Novo Usuário</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list inset>
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" #usuario></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" #senha></ion-input>
+    </ion-item>
+  </ion-list>
+    <button ion-button full color="light" (click)="cadastrar()">Cadastrar</button>   
+</ion-content>
