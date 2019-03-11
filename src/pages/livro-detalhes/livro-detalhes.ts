@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Livro } from '../../model/livro';
 
 /**
  * Generated class for the LivroDetalhesPage page.
@@ -14,9 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'livro-detalhes.html',
 })
 export class LivroDetalhesPage {
+  //variável para os dados do livro
+    livro: Livro;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams) {
+       //receber o parâmetro livro -> {'livro' : 'obj';}
+      this.livro = this.navParams.get('livro');
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LivroDetalhesPage');
