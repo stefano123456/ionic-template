@@ -1,13 +1,20 @@
 
-<ion-card>
-  <img src="https://imgmanagercb-a.akamaihd.net/a-abolicao-do-homem-c-s-lewis-8578601890/livros_200x200-PU6ebcb25d_1.jpg"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-  </ion-card-content>
-</ion-card>
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Livros</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let livro of livros" (click)="detalhar(livro)">
+      <ion-avatar item-start>
+          <img src="{{livro.imagem}}"/>
+      </ion-avatar>
+      <h2>{{livro.titulo}}</h2>
+     
+    </ion-item>
+  </ion-list>
+</ion-content>
