@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LivrosPage } from '../pages/livros/livros';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
@@ -13,7 +14,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: string = 'HomePage';
+  rootPage: string = 'LoginPage';
 
   pages: Array<{title: string, component: string}>;
 
@@ -26,6 +27,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component:  'HomePage' },
+      { title: 'Livros', component:  'LivrosPage' },
       { title: 'List', component: 'ListPage' }
     ];
 
@@ -40,14 +42,14 @@ export class MyApp {
     });
     this.firebaseauth.authState
       .subscribe(
-      user =&gt; {
+      user => {
       if (user) {
       this.rootPage = 'HomePage';
       } else {
       this.rootPage = 'LoginPage';
       }
       },
-      () =&gt; {
+      () => {
       this.rootPage = 'HomePage';
       }
       );
