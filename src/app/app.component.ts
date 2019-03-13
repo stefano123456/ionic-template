@@ -30,7 +30,8 @@ export class MyApp {
       { title: 'Home', component:  'HomePage' },
       { title: 'Livros', component:  'LivrosPage' },
       { title: 'List', component: 'ListPage' },
-      { title: 'Autores', component: 'AutoresPage' }
+      { title: 'Autores', component: 'AutoresPage' },
+      { title: 'Meus Dados', component: 'DadosPage' }
     ];
 
   }

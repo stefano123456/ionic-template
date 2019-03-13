@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { firebaseConfig } from '../config/firebase.config';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
     StatusBar,
     SplashScreen,
     AngularFireAuth,
+    AngularFireStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
