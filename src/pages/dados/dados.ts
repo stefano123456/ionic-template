@@ -26,7 +26,26 @@ export class DadosPage {
   }
 
   ionViewDidLoad() {
-   // console.log('ionViewDidLoad DadosPage');
+    //referência para a coleção dados
+   var docRef = this.firestore.collection("dados").doc(this.uid);
+
+   docRef.get().then(doc =>{ //solicita o documento
+
+    if(doc.exists){ // verifica se existe o documento
+      this.dados.setDados(doc.data()); //se existir,pega os dados
+    }else{
+      //se não existir ele cria, este código será modificado
+      this.firestore.collection("dados").doc(this.uid).set(
+        {'nome':'stefano','telefone':'983283731'}
+      ).then(ref =>{
+        // utiliza o mesmo dado acim, este código será removido
+       this.dados.setDados({'nome':'Stefano','telefone':'983283731'});
+      }).catch(err =>{
+        console.log(err.message)
+      })
+    }
+   })
+   this.downloadFoto(); //foto carrega ao abrir a página
   }
 
   enviaArquivo(event){
@@ -41,13 +60,17 @@ export class DadosPage {
     //executar o upload
     ref.put(this.imagem).then(resp => {
       //se sucesso, pega a url para download da imagem 
-      ref.getDownloadURL().then(url =>{
-       // console.log(url);//URL para dwnload
-       this.dados.foto = url; 
-      }).catch(err =>{
-        //houve algum erro
-        console.log(err);
-      })
+      this.downloadFoto();
+    })
+  }
+  downloadFoto(){
+    let ref = 'usuario/'+this.uid+'.jpg';//pasta do servidor
+    let gsReference = firebase.storage().ref().child(ref); //referência do arquivo no servidor
+
+    gsReference.getDownloadURL().then( url =>{ //tenta baixar a foto do servidor
+      this.dados.foto = url; // foto baixada com sucesso
+    }).catch(()=>{ //foto não existe,pega foto padrão
+      this.dados.foto = "https://www.gazetadopovo.com.br/blogs/dias-da-vida/wp-content/themes/padrao/imagens/perfil-blog.png";
     })
   }
 }

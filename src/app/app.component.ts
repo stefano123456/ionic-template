@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AutoresPage } from '../pages/autores/autores';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LivrosPage } from '../pages/livros/livros';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -29,7 +28,6 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component:  'HomePage' },
       { title: 'Livros', component:  'LivrosPage' },
-      { title: 'List', component: 'ListPage' },
       { title: 'Autores', component: 'AutoresPage' },
       { title: 'Meus Dados', component: 'DadosPage' }
     ];

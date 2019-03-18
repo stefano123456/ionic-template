@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar>
+<ion-header >
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,15 +7,49 @@
   </ion-navbar>
 </ion-header>
 
-<ion-card>
-  <img src="img/nin-live.png"/>
+<ion-content padding>
+
+  <form [formGroup]="formGroup" (ngSubmit)="add()">
+    <ion-textarea formControlName="mensagem" placeholder = "Sua mensagem"></ion-textarea>
+    <button color="dark" ion-button block>Postar</button>
+  </form>
+
+  <ion-card color="dark" *ngFor="let p of posts">
+
+  <ion-item color="dark">
+    <ion-avatar item-start>
+      <img src="img/marty-avatar.png">
+    </ion-avatar>
+    <h2>{{p.nome}}</h2>
+    <span *ngIf ="p.uid == uid" (click) = "editar(p)" style="font-size:12px">Editar</span>
+  
+  </ion-item>
+
+  
+
   <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
+    <p>{{p.mensagem}}</p>
   </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note *ngIf="p.uid == uid" (click)="removerPost(p.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
 </ion-card>
+</ion-content>
