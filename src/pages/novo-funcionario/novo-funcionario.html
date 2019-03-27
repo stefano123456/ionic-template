@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>novo-cliente</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+<ion-title>Novo Funcionário</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+  
+  <form [formGroup]="formGroup" (ngSubmit)="add()">
+    <ion-input formControlName="matricula" placeholder="matricula"></ion-input>
+    <ion-input formControlName="nomeCompleto" placeholder="nomeCompleto"></ion-input>
+    <ion-input formControlName="cargo" placeholder="cargo"></ion-input>    
+    <ion-input formControlName="salario" placeholder="salario"></ion-input>
+    <button ion-button block>Adicionar</button>
+  </form>
+</ion-content>

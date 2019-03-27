@@ -4,7 +4,6 @@ import firebase from 'firebase';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireStorage } from 'angularfire2/storage';
 
-import { Post } from '../../model/post';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
@@ -18,15 +17,15 @@ export class HomePage {
     firestore = firebase.firestore();
     formGroup : FormGroup;
     uid: string;
-    posts: Post[] = [];
+   // posts: Post[] = [];
 
   constructor(public navCtrl: NavController,
   public menuCtrl: MenuController,
   public firebaseauth: AngularFireAuth,
-  public formBuilder: FormBuilder,
-  public storage: AngularFireStorage) {
+  public formBuilder: FormBuilder/*,
+  public storage: AngularFireStorage*/) {
 
-    
+  }/*
    this.firebaseauth.authState.subscribe(user =>{
      if (user){this.uid = user.uid}
    });
@@ -88,4 +87,4 @@ this.firestore.collection("post").add(
   editar(post : Post){
     this.navCtrl.push('PostEditPage',{'post' : post})
   }
-}
+}*/}

@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>novo-servico</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+<ion-title>servico</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+  
+  <form [formGroup]="formGroup" (ngSubmit)="add()">
+    <ion-input formControlName="nome" placeholder="nome"></ion-input>
+    <ion-input formControlName="valor" placeholder="valor"></ion-input>
+    <ion-input formControlName="descricao" placeholder="descricao"></ion-input>
+    <button ion-button block>Adicionar</button>
+  </form>
+</ion-content>

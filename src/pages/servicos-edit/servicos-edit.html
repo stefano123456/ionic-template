@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ServicosEdit</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="atualizar()">
+    <ion-input formControlName="nome" placeholder="nome"></ion-input>
+    <ion-input formControlName="valor" placeholder="valor"></ion-input>
+    <ion-input formControlName="descricao" placeholder="descricao"></ion-input>
+    
+    <button ion-button block>Atualizar</button>
+  </form>
+</ion-content>

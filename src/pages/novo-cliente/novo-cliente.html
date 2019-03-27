@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>novo-cliente</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+<ion-title>Novo cliente</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+  
+  <form [formGroup]="formGroup" (ngSubmit)="add()">
+    <ion-input formControlName="nome" placeholder="nome"></ion-input>
+    <ion-input formControlName="email" placeholder="email"></ion-input>
+    <ion-input formControlName="bairro" placeholder="bairro"></ion-input>
+    <ion-input formControlName="cidade" placeholder="cidade"></ion-input>
+    <ion-input formControlName="cep" placeholder="cep"></ion-input>
+    <ion-input formControlName="telefone" placeholder="telefone"></ion-input>
+    <ion-input formControlName="endereco" placeholder="endereco"></ion-input>
+    <button ion-button block>Adicionar</button>
+  </form>
+</ion-content>

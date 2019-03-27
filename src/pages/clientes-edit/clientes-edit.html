@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ClientesEdit</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <img src="{{clientes?.imagem}}" />
+    <input type="file" (change)="enviaImg($event)">
+  <form [formGroup]="formGroup" (ngSubmit)="atualizar()">
+    <ion-input formControlName="nome" placeholder="nome"></ion-input>
+    <ion-input formControlName="email" placeholder="email"></ion-input>
+    <ion-input formControlName="bairro" placeholder="bairro"></ion-input>
+    <ion-input formControlName="cidade" placeholder="cidade"></ion-input>
+    <ion-input formControlName="cep" placeholder="cep"></ion-input>
+    <ion-input formControlName="telefone" placeholder="telefone"></ion-input>
+    <ion-input formControlName="endereco" placeholder="endereco"></ion-input>
+   
+    <button ion-button block>Atualizar</button>
+  </form>
+
+</ion-content>

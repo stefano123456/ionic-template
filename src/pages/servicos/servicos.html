@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>    
+        <ion-col>
+          <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+          </button>
+          </ion-col>
+          <ion-col>
+            <ion-title>Serviços</ion-title>
+          </ion-col>
+          <ion-col align-self-right text-right>
+            <ion-icon id="add" name="add" (click)="PGns()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let se of servicos" >
+      <ion-avatar item-start>
+          
+      </ion-avatar>
+      <h2>{{se.nome}}</h2>
+      <p>R$ {{se.valor}}</p>
+      <p>{{se.descricao}}</p>
+      <p><ion-icon name="create"(click)="editar(se)"></ion-icon>
+      <ion-icon name="trash" (click)="excluir(se)"></ion-icon></p>
+    </ion-item>
+    
+  </ion-list>
+  
+</ion-content>
+

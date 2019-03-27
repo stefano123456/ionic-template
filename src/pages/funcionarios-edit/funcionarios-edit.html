@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Funcionarios Edit</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <img src="{{funcionarios?.imagem}}" />
+    <input type="file" (change)="enviaImg($event)">
+  <form [formGroup]="formGroup" (ngSubmit)="atualizar()">
+    <ion-input formControlName="matricula" placeholder="matricula"></ion-input>
+    <ion-input formControlName="nomeCompleto" placeholder="nomeCompleto"></ion-input>
+    <ion-input formControlName="cargo" placeholder="cargo"></ion-input> 
+    <ion-input formControlName="salario" placeholder="salario"></ion-input> 
+    <button ion-button block>Atualizar</button>
+  </form>
+</ion-content>

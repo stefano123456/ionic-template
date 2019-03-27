@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>    
+        <ion-col>
+          <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+          </button>
+          </ion-col>
+          <ion-col>
+            <ion-title>Funcionarios</ion-title>
+          </ion-col>
+          <ion-col align-self-right text-right>
+            <ion-icon id="add" name="person-add" (click)="PGnf()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let fc of funcionarios" >
+      <ion-avatar item-start>
+        <img src="{{fc.imagem}}"/>
+    </ion-avatar>
+      <label>Matricula: {{fc.matricula}}</label>
+      <P><label>Nome: <h2>{{fc.nomeCompleto}}</h2></label></P>
+      <label>Cargo: <p>{{fc.cargo}}</p></label>
+      <p><label>Salário: R$ {{fc.salario}}</label></p>
+      <p><ion-icon id="create" name="create"(click)="editar(fc)"></ion-icon>
+      <ion-icon id="trash" name="trash" (click)="excluir(fc)"></ion-icon></p>
+    </ion-item>
+    
+  </ion-list> 
+</ion-content>
+

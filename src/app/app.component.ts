@@ -3,16 +3,15 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { AutoresPage } from '../pages/autores/autores';
-import { HomePage } from '../pages/home/home';
-import { LivrosPage } from '../pages/livros/livros';
+import { ServicosPage } from '../pages/servicos/servicos'
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ClientesPage} from '../pages/clientes/clientes'
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) nav: Nav; 
 
   rootPage: string = 'LoginPage';
 
@@ -26,10 +25,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component:  'HomePage' },
-      { title: 'Livros', component:  'LivrosPage' },
-      { title: 'Autores', component: 'AutoresPage' },
-      { title: 'Meus Dados', component: 'DadosPage' }
+      { title: 'Clientes', component: 'ClientesPage' },
+      { title: 'Funcionarios', component: 'FuncionariosPage' },
+      { title: 'Servicos', component: 'ServicosPage' }
+      
     ];
 
   }
@@ -45,13 +44,13 @@ export class MyApp {
       .subscribe(
       user => {
       if (user) {
-      this.rootPage = 'HomePage';
+      this.rootPage = 'ClientesPage';
       } else {
       this.rootPage = 'LoginPage';
       }
       },
       () => {
-      this.rootPage = 'HomePage';
+      this.rootPage = 'ClientesPage';
       }
       );
       }
